@@ -1,3 +1,4 @@
+require "pry"
 class Role < ActiveRecord::Base
   has_many : auditions
 
@@ -6,7 +7,8 @@ class Role < ActiveRecord::Base
   end 
 
   def actors
-    self.actor
+    self.auditions.map{ | each_audition| each_audition.actor }
+    binding.pry
   end 
 
 
